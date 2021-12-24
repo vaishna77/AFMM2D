@@ -10,6 +10,7 @@
 #define __KDTREE_HPP__
 
 #include <iostream>
+#include <bits/stdc++.h>
 #include <Eigen/Dense>
 
 class KDTree {
@@ -59,4 +60,6 @@ public:
         //      Obtains the location and properties corresponding to the 1234 index in the sorted fashion.
         void get_Location_Properties(const unsigned n_Index, double* location, double* properties);
 };
+void display(std::string display_String, unsigned n_Locations, unsigned n_Dimension, double* locations, unsigned n_Properties, double* properties);
+void sort_KDTree(unsigned N, unsigned n_Dimension, double* locations, unsigned n_Properties, double* properties, unsigned MinParticlesInLeaf, unsigned nLevels, double* sorted_Locations, double* sorted_Properties, std::vector<std::vector<int> >& boxNumbers, std::vector<int>& NumberOfParticlesInLeaves);
 #endif /* defined(__KDTREE_HPP__) */

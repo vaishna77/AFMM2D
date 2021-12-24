@@ -7,6 +7,7 @@
 //
 
 #include "KDTree.hpp"
+// #include "../include/KDTree.hpp"
 #include <Eigen/Dense>
 
 KDTree::KDTree(const unsigned n_Locations, const unsigned n_Dimension, double* locations, const unsigned n_Properties, double* properties, const unsigned MinParticlesInLeaf, const unsigned nLevels) {
@@ -130,10 +131,10 @@ int KDTree::sort_KDTree(unsigned n_Start, unsigned n_Size, unsigned n_Index, uns
         NumberOfParticlesInLeaves.push_back(n_Right_Top_Size);
       }
       // std::cout << "local_level: " << local_level << std::endl;
-      sort_KDTree(n_Left_Bottom_Start, n_Left_Bottom_Size, n_Index, local_level, NumberOfParticlesInLeaves);
-      sort_KDTree(n_Left_Top_Start, n_Left_Top_Size, n_Index, local_level, NumberOfParticlesInLeaves);
-      sort_KDTree(n_Right_Bottom_Start, n_Right_Bottom_Size, n_Index, local_level, NumberOfParticlesInLeaves);
-      sort_KDTree(n_Right_Top_Start, n_Right_Top_Size, n_Index, local_level, NumberOfParticlesInLeaves);
+      this->sort_KDTree(n_Left_Bottom_Start, n_Left_Bottom_Size, n_Index, local_level, NumberOfParticlesInLeaves);
+      this->sort_KDTree(n_Left_Top_Start, n_Left_Top_Size, n_Index, local_level, NumberOfParticlesInLeaves);
+      this->sort_KDTree(n_Right_Bottom_Start, n_Right_Bottom_Size, n_Index, local_level, NumberOfParticlesInLeaves);
+      this->sort_KDTree(n_Right_Top_Start, n_Right_Top_Size, n_Index, local_level, NumberOfParticlesInLeaves);
       // nLevels += 1;
     }
     return 0;
@@ -147,7 +148,7 @@ int KDTree::sort_KDTree(std::vector<int>& NumberOfParticlesInLeaves) {
         }
         else {
                 //      Number of point on the left cluster
-                return sort_KDTree(0, n_Locations, 0, 0, NumberOfParticlesInLeaves);
+                return this->sort_KDTree(0, n_Locations, 0, 0, NumberOfParticlesInLeaves);
         }
 }
 
