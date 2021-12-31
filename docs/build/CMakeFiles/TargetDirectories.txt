@@ -1,0 +1,3 @@
+/Users/vaishnavi/Documents/GitHub/AFMM/build/CMakeFiles/rebuild_cache.dir
+/Users/vaishnavi/Documents/GitHub/AFMM/build/CMakeFiles/edit_cache.dir
+/Users/vaishnavi/Documents/GitHub/AFMM/build/CMakeFiles/exec1.dir

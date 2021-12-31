@@ -33,13 +33,13 @@
 		std::vector<pts2D> particles_X, particles_Y;
 		mykernel		=	new userkernel(particles_X, particles_Y);
 		afmm2dtree	=	new FMM2DTree(mykernel, int(N), int(nLevels), L, TOL_POW, sorted_Locations, boxNumbers[nLevels], NumberOfParticlesInLeaves);
-	}
-
-	void AFMM::assemble() {
 		afmm2dtree->createTree();
 		afmm2dtree->assign_Tree_Interactions();
 		afmm2dtree->assign_Center_Location();
 		afmm2dtree->assignLeafChargeLocations();
+	}
+
+	void AFMM::assemble() {
 		afmm2dtree->getNodes();
 		afmm2dtree->assemble_M2L();
 	}
@@ -68,7 +68,7 @@
 	void AFMM::evaluateError() {
 		srand(time(NULL));
     std::cout << std::endl << "Performing error calculation in box: " << std::endl;
-    for (size_t i = 0; i < 20; i++) {
+    for (size_t i = 0; i < 1; i++) {
       int nBox	=	rand()%afmm2dtree->nBoxesPerLevel[nLevels];
       std::cout << "nBox: " << nBox << "	err: " << afmm2dtree->compute_error(nBox) << std::endl;
     }

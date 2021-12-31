@@ -83,7 +83,7 @@ std::cout << "Matrix Size                        :" << N << std::endl;
 std::cout << "Leaf Size                          :" << MinParticlesInLeaf << std::endl;
 std::cout << "Tolerance                          :" << pow(10,-TOL_POW) << std::endl << std::endl;
 unsigned nLevels = log(N/MinParticlesInLeaf)/log(4);
-std::cout << "nLevels: " << nLevels << std::endl;
+// std::cout << "nLevels: " << nLevels << std::endl;
 
 start	=	omp_get_wtime();
 afmm->assemble();
