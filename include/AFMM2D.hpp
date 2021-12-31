@@ -25,8 +25,7 @@ public:
 	double* sorted_Properties;
 	userkernel* mykernel;
 	FMM2DTree* afmm2dtree;
-  double L;
-  AFMM(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc, double L);
+  AFMM(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc);
   void assemble();
   Eigen::VectorXd computeMatVecProduct(Eigen::VectorXd inputVecUnsorted);
   void evaluateError();

@@ -1,8 +1,7 @@
 #include "AFMM2D.hpp"
 
-	AFMM::AFMM(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc, double L) {
+	AFMM::AFMM(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc) {
 		this->N = N;
-    this->L = L;
 		this->MinParticlesInLeaf = MinParticlesInLeaf;
 		this->TOL_POW = TOL_POW;
 		nLevels      = log(N/MinParticlesInLeaf)/log(4);
@@ -32,7 +31,7 @@
 		sort_KDTree(N, n_Dimension, locations, n_Properties, properties, MinParticlesInLeaf, nLevels, sorted_Locations, sorted_Properties, boxNumbers, NumberOfParticlesInLeaves); // Creates a KDTree given the locations. This KD Tree class generates a uniform tree - all leaves are at level nLevels. Number of particles in boxes at a given level differ by atmost 1.
 		std::vector<pts2D> particles_X, particles_Y;
 		mykernel		=	new userkernel(particles_X, particles_Y);
-		afmm2dtree	=	new FMM2DTree(mykernel, int(N), int(nLevels), L, TOL_POW, sorted_Locations, boxNumbers[nLevels], NumberOfParticlesInLeaves);
+		afmm2dtree	=	new FMM2DTree(mykernel, int(N), int(nLevels), TOL_POW, sorted_Locations, boxNumbers[nLevels], NumberOfParticlesInLeaves);
 		afmm2dtree->createTree();
 		afmm2dtree->assign_Tree_Interactions();
 		afmm2dtree->assign_Center_Location();

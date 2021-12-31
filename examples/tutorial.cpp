@@ -56,24 +56,22 @@ int main(int argc, char* argv[]) {
 	MinParticlesInLeaf   =       atoi(argv[2]); // minimum particles in each leaf of KD Tree
 	TOL_POW = atoi(argv[3]);
 }
-
-////////////////////////////
-Eigen::VectorXd b(N); //vector definition
-for (size_t i = 0; i < N; i++) {
-  b(i) = 2*double(rand())/double(RAND_MAX)-1;
-}
-double L = 1.0;
 unsigned Dimension = 2;
+////////////////////////////
+// definition of vector which is to be multiplied to the matrix
+Eigen::VectorXd b = Eigen::VectorXd::Random(N);
+// locations definition: the location of nodes in the domain.
 Eigen::MatrixXd loc(N,Dimension);
 for (size_t j = 0; j < N; j++) {
   for (size_t k = 0; k < Dimension; k++) {
-    loc(j,k) = 2.0*double(rand())/double(RAND_MAX)-1.0;
+    loc(j,k) = 2.0*double(rand())/double(RAND_MAX)-1.0; // domain: [-1,1]x[-1,1]
   }
 }
+//.
 double start, end;
 ///////////////////////// AFMM /////////////////////////////
 start	=	omp_get_wtime();
-AFMM* afmm = new AFMM(N, MinParticlesInLeaf, TOL_POW, loc, L);
+AFMM* afmm = new AFMM(N, MinParticlesInLeaf, TOL_POW, loc);
 end	=	omp_get_wtime();
 double timeCreateTreeAFMM = end-start;
 std::cout << std::endl << "AFMM tree creation time: " << timeCreateTreeAFMM << std::endl;
@@ -112,6 +110,7 @@ double timeMatVecProduct = (end - start);
 std::cout << "========================= Matrix-Vector Multiplication =========================" << std::endl;
 std::cout << "Time for MatVec in HODLR form      :" << timeMatVecProduct << std::endl;
 
+// B is built using getMatrix method which uses a different ordering of nodes-sorted by KD tree. So the following ordering and reordering was done
 start = omp_get_wtime();
 Eigen::VectorXd bSorted(N);
 for (size_t i = 0; i < N; i++) {
@@ -122,6 +121,7 @@ Eigen::VectorXd r_exact(N);
 for (size_t i = 0; i < N; i++) {
   r_exact(int(afmm->sorted_Properties[i])) = r_exact_Sorted(i);
 }
+//.
 
 end   = omp_get_wtime();
 exact_time = (end - start);

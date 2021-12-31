@@ -8,8 +8,8 @@ find_package(OpenMP)
 # Provide the input file that you want to solve for:
 # This can also be passed as a command line argument:
 if(NOT INPUT_FILE)
-  set (INPUT_FILE "examples/tutorial.cpp")
-  #set (INPUT_FILE "testHODLR2D.cpp")
+  #set (INPUT_FILE "examples/tutorial.cpp")
+  set (INPUT_FILE "examples/testAFMM2D.cpp")
 endif()
 # Here set the name for the output executable:
 # This can also be passed as a command line argument:

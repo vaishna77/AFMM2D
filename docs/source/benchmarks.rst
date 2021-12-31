@@ -1,7 +1,7 @@
 Benchmarks
 ^^^^^^^^^^
 
-Below are few benchmarks of the code.
+All the following benchmarks have been carried out on a 2.3 GHz Intel Core i5 processor with 8GB RAM (with OpenMP enabled, this is 4 threads), with g++-9 compiler and Eigen version 3.3.7. The compiler flags that were utilized are the same are those mentioned in the CMakeLists.txt file.
 
 Time Taken vs Tolerance
 ~~~~~~~~~~~~~~~~~~~~~~~

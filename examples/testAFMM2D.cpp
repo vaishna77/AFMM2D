@@ -58,11 +58,7 @@ int main(int argc, char* argv[]) {
 }
 
 ////////////////////////////
-Eigen::VectorXd b(N); //vector definition
-for (size_t i = 0; i < N; i++) {
-  b(i) = 2*double(rand())/double(RAND_MAX)-1;
-}
-double L = 1.0;
+Eigen::VectorXd b = Eigen::VectorXd::Random(N);
 unsigned Dimension = 2;
 Eigen::MatrixXd loc(N,Dimension);
 for (size_t j = 0; j < N; j++) {
@@ -73,7 +69,7 @@ for (size_t j = 0; j < N; j++) {
 double start, end;
 ///////////////////////// AFMM /////////////////////////////
 start	=	omp_get_wtime();
-AFMM* afmm = new AFMM(N, MinParticlesInLeaf, TOL_POW, loc, L);
+AFMM* afmm = new AFMM(N, MinParticlesInLeaf, TOL_POW, loc);
 end	=	omp_get_wtime();
 double timeCreateTreeAFMM = end-start;
 std::cout << std::endl << "AFMM tree creation time: " << timeCreateTreeAFMM << std::endl;

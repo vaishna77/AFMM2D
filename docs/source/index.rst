@@ -42,4 +42,4 @@ Other Links
 Learn more about :math:`\texttt{AFMM2Dlib}` by visiting the
 
 * Code Repository: http://github.com/sivaramambikasaran/AFMM2D
-* Documentation: http://afmm2dlib.rtfd.io
+* Documentation: http://afmm2d.rtfd.io

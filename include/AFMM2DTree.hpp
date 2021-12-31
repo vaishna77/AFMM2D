@@ -14,7 +14,6 @@ public:
 	userkernel* K;
 	int nLevels;			//	Number of levels in the tree.
 	int N;					//	Number of particles.
-	double L;				//	Semi-length of the simulation box.
 	double smallestBoxSize;	//	This is L/2.0^(nLevels).
 
 	std::vector<int> nBoxesPerLevel;			//	Number of boxes at each level in the tree.
@@ -31,7 +30,7 @@ public:
 	std::vector<int> boxNumbers;
 	std::vector<int> NumberOfParticlesInLeaves;
 // public:
-	FMM2DTree(userkernel* K, int N, int nLevels, double L, int TOL_POW, double* locations, std::vector<int>& boxNumbers, std::vector<int>& NumberOfParticlesInLeaves);
+	FMM2DTree(userkernel* K, int N, int nLevels, int TOL_POW, double* locations, std::vector<int>& boxNumbers, std::vector<int>& NumberOfParticlesInLeaves);
   void createTree();
   void assign_Child0_Interaction(int j, int k);
   void assign_Child1_Interaction(int j, int k);

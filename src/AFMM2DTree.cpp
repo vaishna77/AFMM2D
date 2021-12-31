@@ -1,9 +1,8 @@
 #include "AFMM2DTree.hpp"
 
-FMM2DTree::FMM2DTree(userkernel* K, int N, int nLevels, double L, int TOL_POW, double* locations, std::vector<int>& boxNumbers, std::vector<int>& NumberOfParticlesInLeaves) {
+FMM2DTree::FMM2DTree(userkernel* K, int N, int nLevels, int TOL_POW, double* locations, std::vector<int>& boxNumbers, std::vector<int>& NumberOfParticlesInLeaves) {
   this->K					=	K;
   this->nLevels		=	nLevels;
-  this->L					=	L;
   this->locations = locations;
   this->boxNumbers= boxNumbers;
   this->NumberOfParticlesInLeaves = NumberOfParticlesInLeaves;
@@ -11,7 +10,7 @@ FMM2DTree::FMM2DTree(userkernel* K, int N, int nLevels, double L, int TOL_POW, d
   // this->nParticlesInLeaf = nParticlesInLeafAlong1D*nParticlesInLeafAlong1D;
   this->TOL_POW = TOL_POW;
   nBoxesPerLevel.push_back(1);
-  boxRadius.push_back(L);
+  boxRadius.push_back(1.0);
   for (int k=1; k<=nLevels; ++k) {
     nBoxesPerLevel.push_back(4*nBoxesPerLevel[k-1]);
     boxRadius.push_back(0.5*boxRadius[k-1]);
