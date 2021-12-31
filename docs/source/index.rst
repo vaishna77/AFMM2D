@@ -22,9 +22,7 @@ The code is written in C++ and features an easy-to-use interface, where the user
 - the vector ``b`` to be multiplied to the matrix
 
 
-The current release has the following capabilities:
-
-- MatVecs: Obtains :math:`A x` at a cost of :math:`\mathcal{O}\left(N\right)`
+Obtains :math:`A x` at a cost of :math:`\mathcal{O}\left(N\right)`
 
 Doc Contents
 ============

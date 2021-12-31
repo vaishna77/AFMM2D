@@ -17,18 +17,13 @@ There are some variables that need to be set by the user at the top of the ``CMa
 Running the program::
 ---------------------
 
-- N: Size of the Matrix in consideration
-- MinParticlesInLeaf: Minimum particles that can be present in a leaf of KD tree
-- TOL_POW: Tolerance of problem
-
 For this particular tutorial, the problem parameters are passed to the executable during runtime. We have the lines::
 
-    N                  = atoi(argv[1]);
-    MinParticlesInLeaf = atoi(argv[2]);
-    TOL_POW            = atoi(argv[3]);
+    N                  = atoi(argv[1]); // Size of the Matrix in consideration
+    MinParticlesInLeaf = atoi(argv[2]); // Minimum particles that can be present in a leaf of KD tree
+    TOL_POW            = atoi(argv[3]); // Tolerance of problem
 
 This means that the first argument would be the matrix size considered, the second one would be the Minimum particles that can be present in a leaf of KD tree, and the final argument is approximately the number of digits of accuracy we want. For instance, running ``./tutorial 10000 32 12`` would correspond to solving the problem with parameters :math:`N=1000, MinParticlesInLeaf=32, \epsilon=10^{-12}`.
-
 
 Creating a Derived Class of ``kernel``:
 ---------------------------------------

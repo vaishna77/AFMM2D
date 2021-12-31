@@ -108,7 +108,7 @@ double timeMatVecProduct = (end - start);
 // afmm->evaluateError();
 
 std::cout << "========================= Matrix-Vector Multiplication =========================" << std::endl;
-std::cout << "Time for MatVec in HODLR form      :" << timeMatVecProduct << std::endl;
+std::cout << "Time for MatVec in AFMM form      :" << timeMatVecProduct << std::endl;
 
 // B is built using getMatrix method which uses a different ordering of nodes-sorted by KD tree. So the following ordering and reordering was done
 start = omp_get_wtime();

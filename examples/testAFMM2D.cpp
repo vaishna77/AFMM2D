@@ -19,21 +19,6 @@ double userkernel::getMatrixEntry(const unsigned i, const unsigned j) {
 	}
 }
 
-// double userkernel::getMatrixEntry(const unsigned i, const unsigned j) {
-//   pts2D r1 = particles_X[i];
-//   pts2D r2 = particles_X[j];
-//   double R2	=	(r1.x-r2.x)*(r1.x-r2.x) + (r1.y-r2.y)*(r1.y-r2.y);
-//   if (R2 < 1e-10) {
-//     return 0.0;
-//   }
-//   else if (R2 < a*a) {
-//     return 0.5*R2*log(R2)/a/a;
-//   }
-//   else {
-//     return 0.5*log(R2);
-//   }
-// }
-
 int main(int argc, char* argv[]) {
   unsigned N;
   unsigned MinParticlesInLeaf;
